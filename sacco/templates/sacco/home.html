@@ -1,0 +1,74 @@
+{% extends "sacco/base.html" %}
+
+{% block left %}
+	<h2><b>Welcome and travel with us, travel with destiny</b></h2><br>
+	<img src="/static/imgs/matatu4.jpg">
+	<h5><b>2NK SACCO Society LTD the pride of kenya</b></h5>
+
+{% endblock %}
+
+{% block right %}
+
+	<h3><b>2NK Moble Banking</b></h3><br>
+	<img src="/static/imgs/sacco8.png">
+
+{% endblock %}
+
+{% block mid %}
+	<h2><b>WELCOME TO 2NK SACCO</b></h2>
+	<p>
+	2NK SACCO is a transport based Sacco with its headquarters located in Nyeri town.</p>
+	<p> The SACCO has gained popularity in various parts of the country for its efficient service transport in ordinary fourteen capacity vans, Executive – shuttles and parcel Delivery.</p>
+	<p>The Sacco Vehicles offers daily trips to the capital city Nairobi from major towns among them  Nyeri, Karatina, Nakuru,Eldoret , Thika  and Nanyuki.</p>
+{% endblock %}
+
+{% block news %}
+			<h1><b>Subscribe to our news letter</b></h1>
+			<form>
+				<input type="email" placeholder="Eter email...">
+				<button type="submit" class="button_1"><b>Subscribe</b></button>
+			</form>
+{% endblock %}
+
+{% block content %}
+
+	{% for comment in comments %}
+    
+		<article class="media content-section">
+		  <div class="media-body">
+		    <div class="article-metadata">
+		      <a class="mr-2" href="#">{{ comment.name }}</a>
+		      <small class="text-muted">{{ comment.date_commented|date:"F d, Y" }}</small>
+		    </div>
+		    <h2><a class="article-title" href="#">{{ comment.position }}</a></h2>
+		    <p class="article-content">{{ comment.comment }}</p>
+		  </div>
+		</article>
+
+	{% endfor %}
+
+{% endblock content %}
+
+{% block bot %}
+
+	<h1><b>Voted the Best Managed Transport Sacco in Kenya Year 2016/2017</b></h1>
+	<form>
+		<button type="submit" class="button_1"><b>LIST OF AWARDS</b></button>
+	</form>
+
+{% endblock %}
+
+{% block x %}
+
+	<h3><b>SALARY ADVANCE</b></h3>
+	<p>This product is tailor made for salaried employees and those with regular fixed income
+	Features and Benefits</p>
+	<img src="/static/imgs/salary.png">
+
+{% endblock %}
+
+{% block y %}
+
+	<h3>INSUARANCE AGENTS </h3><br><br><br>
+	<img src="/static/imgs/sacco9.jpg">
+{% endblock %}

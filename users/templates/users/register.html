@@ -1,0 +1,26 @@
+{% extends "sacco/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+	<div class="content-section">
+		<form method="POST">
+			{% csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4"><h3><b>You want to Join Today?</b></h3>
+				</legend>
+				<p><b>For more information about registration Visit Our Offices near your place or contact us via phone or our official email we will give you the way foward about registration.</b></p>
+				<p><b>Read Our About, Our Services and Our InfoCenter page to know more about us and you can also get our contacts on Our Contact page to reach out to us.</b></p>
+				<p><b>Feel free to contact us.</b></p>
+			</fieldset>
+		</form>
+		<div class="border-top pt-3">
+			<small class="text-muted"><b>
+				You Already Have An Account? </b><a class="ml-2" href="{% url 'login' %}"><b>Log In</b></a>
+			</small>
+		</div>
+	</div>	
+
+{% endblock content %}
+
+

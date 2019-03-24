@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: patricmaina@gmail.com
+Date: Thu, 21 Mar 2019 15:11:07 -0000
+Message-ID: <155318106786.29346.17887410786400014921@eddie-HP-EliteBook-8460p>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/password-reset-confirm/Mg/54t-dc0740d023f4303149a8/
+
+Your username, in case you've forgotten: patricmaina
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------

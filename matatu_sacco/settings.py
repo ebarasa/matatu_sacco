@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'sacco.apps.SaccoConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
-    'phone_field',
+    'phonenumber_field',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,3 +130,10 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'sacco-home'
 LOGIN_URL = 'login'
+
+AUTH_PROFILE_MODULE = "users.UserProfile"
+
+
+
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")

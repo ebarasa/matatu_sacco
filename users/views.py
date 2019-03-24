@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .form import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .form import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, OwnerUpdateForm
+from .models import Owner, Matatu, Activity_log, Crew
 
 def register(request):
 	if request.method == 'POST':
@@ -38,14 +39,26 @@ def profile(request):
 	}
 	return render(request, 'users/profile.html', context)
 
+
 @login_required
 def detail(request):
-	return render(request, 'users/detail.html')
+	# import pdb; pdb.set_trace();
+	context = {
+		'owners' : Owner.objects.filter(user_id=request.user.id),
+	}
+	return render(request, 'users/detail.html', context)
 
 @login_required
 def activity(request):
-	return render(request, 'users/activity.html')
+	context = {
+		'activity_logs': Activity_log.objects.all()
+	}
+	return render(request, 'users/activity.html', context)
+
 
 @login_required
 def report(request):
+
+
 	return render(request, 'users/report.html')
+

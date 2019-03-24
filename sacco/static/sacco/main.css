@@ -158,3 +158,12 @@ a.article-title:hover {
   color: #A4B718;
 }
 
+
+.btn a {
+  color: #fefefe;
+  font-weight: bold;
+}
+
+.btn a:hover {
+  text-decoration: none;
+}

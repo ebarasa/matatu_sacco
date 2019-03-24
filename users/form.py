@@ -1,8 +1,8 @@
 from django import forms
-from phone_field import PhoneField
+from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile
+from .models import Profile, Owner
 
 class UserRegisterForm(UserCreationForm):
 	email = forms.EmailField()
@@ -13,7 +13,6 @@ class UserRegisterForm(UserCreationForm):
 
 class UserUpdateForm(forms.ModelForm):
 	email = forms.EmailField()
-	phone = forms.IntegerField()
 
 
 	class Meta:
@@ -24,3 +23,8 @@ class ProfileUpdateForm(forms.ModelForm):
 	class Meta:
 		model = Profile
 		fields = ['image']
+
+class OwnerUpdateForm(forms.ModelForm):
+	class Meta:
+		model = Owner
+		fields = ['full_name', 'id_number', 'phone_number']

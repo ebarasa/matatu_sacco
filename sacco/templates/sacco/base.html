@@ -4,6 +4,8 @@
 <html>
 <head>
 
+
+
 	<!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,7 +37,9 @@
 	      		<div class="collapse navbar-collapse" id="navbarToggle">
 	        		<div class="navbar-nav mr-auto">
 	          			<a class="nav-item nav-link" href="{% url 'sacco-home' %}"><b>Home</b></a>
+	          			<a class="nav-item nav-link" href="{% url 'sacco-about' %}"><b>About</b></a>
 	          			<a class="nav-item nav-link" href="{% url 'sacco-contacts' %}"><b>Contacts</b></a>
+	          			<a class="nav-item nav-link" href="{% url 'sacco-csr' %}"><b>CSR</b></a>
 	        		</div>
 	        	<!-- Navbar Right Side -->
 	        	<div class="navbar-nav">
@@ -46,11 +50,9 @@
 		        		<a class="nav-item nav-link" href="{% url 'report' %}"><b>Reports</b></a>
 	        			<a class="nav-item nav-link" href="{% url 'logout' %}"><b>Logout</b></a>
 	        		{% else %}
-	        			<a class="nav-item nav-link" href="{% url 'sacco-about' %}"><b>About</b></a>
 	          			<a class="nav-item nav-link" href="{% url 'sacco-services' %}"><b>Services</b></a>
 	          			<a class="nav-item nav-link" href="{% url 'sacco-membership' %}"><b>Membership</b></a>
 	          			<a class="nav-item nav-link" href="{% url 'sacco-infocenter' %}"><b>InfoCenter</b></a>
-	          			<a class="nav-item nav-link" href="{% url 'sacco-csr' %}"><b>CSR</b></a>
 	        			<a class="nav-item nav-link" href="{% url 'login' %}"><b>Login</b></a>
 	          			<a class="nav-item nav-link" href="{% url 'register' %}"><b>Register</b></a>
 	          		{% endif %}
@@ -108,15 +110,15 @@
 	        	<h3><b>Our Sidebar</b></h3>
 	        	<p class='text-muted'>You can put any information here you'd like.
 	          	<ul class="list-group">
-	            	<li class="list-group-item list-group-item-light"><b>Latest Posts</b></li>
-	            	<li class="list-group-item list-group-item-light"><b>Announcements</b></li>
-	            	<li class="list-group-item list-group-item-light"><b>Events</b></li>
-	            	<li class="list-group-item list-group-item-light"><b>Calendars</b></li>
-	            	<li class="list-group-item list-group-item-light"><b>COmplaints</b></li>
-	            	<li class="list-group-item list-group-item-light"><b>Send Message</b></li>
-	            	<li class="list-group-item list-group-item-light"><b>Need Help</b></li>
-	            	<li class="list-group-item list-group-item-light"><b>Suggestions</b></li>
-	            	<li class="list-group-item list-group-item-light"><b>etc</b></li>
+	            	<a class="list-group-item list-group-item-light" href="{% url 'sacco-post' %}"><b>Latest Post</b></a>
+	            	<a class="list-group-item list-group-item-light" href="{% url 'sacco-announcements' %}"><b>Announcements</b></a>
+	            	<a class="list-group-item list-group-item-light" href="{% url 'sacco-events' %}"><b>Events</b></a>
+	            	<a class="list-group-item list-group-item-light" href="{% url 'sacco-calendars' %}"><b>Calendars</b></a>
+	            	<a class="list-group-item list-group-item-light" href="{% url 'sacco-complaints' %}"><b>Complaints</b></a>
+	            	<a class="list-group-item list-group-item-light" href="{% url 'sacco-messages' %}"><b>Send Message</b></a>
+	            	<a class="list-group-item list-group-item-light" href="{% url 'sacco-help' %}"><b>Need Help</b></a>
+	            	<a class="list-group-item list-group-item-light" href="{% url 'sacco-suggestions' %}"><b>Suggestions</b></a>
+	            	<a class="list-group-item list-group-item-light" href="{% url 'sacco-etc' %}"><b>etc</b></a>
 	          	</ul>
 	       		</p>
 	      	</div>

@@ -24,3 +24,30 @@ def csr(request):
 
 def contacts(request):
 	return render(request, 'sacco/contacts.html', {'title':'Contacts'})
+
+def post(request):
+	return render(request, 'sacco/post.html', {'title': 'Post'})
+
+def announcements(request):
+	return render(request, 'sacco/announcements.html', {'title': 'announcements'})
+
+def events(request):
+	return render(request, 'sacco/events.html', {'title': 'events'})
+
+def calendars(request):
+	return render(request, 'sacco/calendars.html', {'title': 'calendars'})
+
+def complaints(request):
+	return render(request, 'sacco/complaints.html', {'title': 'complaints'})
+
+def messages(request):
+	return render(request, 'sacco/messages.html', {'title': 'messages'})
+
+def help(request):
+	return render(request, 'sacco/help.html', {'title': 'help'})
+
+def suggestions(request):
+	return render(request, 'sacco/suggestions.html', {'title': 'suggestions'})
+
+def etc(request):
+	return render(request, 'sacco/etc.html', {'title': 'etc'})

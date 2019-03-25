@@ -13,28 +13,69 @@
 		    </div>
 		 </div>
 
+		 <legend class="border-bottom mb-4"><h3><b>Activities Info</b></h3></legend>
 		<div class="content-section">
-		  <form method="POST" enctype="multipart/form-data">
-				{% csrf_token %}
-				<fieldset class="form-group">
-					<legend class="border-bottom mb-4"><h3><b>Activities Info</b></h3></legend>
-					<p><b>Matatu name:</b> {{ activity_log.matatu_id }} </p>
-					<p><b>Date and Time of Record:</b> {{ activity_log.Date_Time_of_record }}</p>
-					<p><b>Activity type:</b> {{ activity_log.Activity_log_type}}</p>
-					<p><b>Activity details:</b> {{ activity_log.Activity_log_details}}</p>
-					<p><b>Number of trips made til now:</b> {{ activity_log.number_of_trips_made_until_now}}</p>
-					<p><b>Place the Activity happened:</b> {{ activity_log.Place_the_Activity_happened}}</p>
-					<p><b>Date/Time the Activity took place:</b> {{ activity_log.Date_and_Time_the_Activity_took_place}}</p>
-					<p><b>Where maintanance happened:</b> {{ activity_log.Where_maintanance_happened}}</p>
-					<p><b>Date/Time maintanance happened:</b> {{ activity_log.Date_Time_maintanance_happened}}</p>
-					<p><b>Who did Maintanance:</b> {{ activity_log.Who_did_Maintanance}}</p>
-					<p><b>Contacts of who did the Maintanace</b> {{ activity_log.contacts_of_who_did_the_repair}}</p>
-					<p><b>image before maintanance:</b><p><b>image after maintanance:</b> <img src="{{ activity_log.image_before_maintanance.url }}" class="img-rounded" width="300" height="230"></p> 
-					<p><b>image after maintanance:</b> <img src="{{ activity_log.image_after_maintanance.url }}" class="img-rounded" width="300" height="230"></p>
-					<p><b>Amount:</b> {{ activity_log.amount}}</p>
-					<p><b>Reciept:</b><img src="{{ activity_log.reciept.url }}" class="img-rounded" width="300" height="230"></p>
-				</fieldset>
-			</form> 
+		  	<table class="table table-striped">
+		  		<tr>
+		  			<th><b>Matatu Name</b></th>
+		  			<td> {{ activity_log.matatu }} </td>
+		  		</tr>
+		  		<tr>
+		  			<th><b>Date/Time of Record</b></th>
+		  			<td>{{ activity_log.Date_Time_of_record }}</td>
+		  		</tr>
+		  		<tr>
+		  			<th><b>Activity Type</b></th>
+		  			<td>{{ activity_log.Activity_log_type }}</td>
+		  		</tr>
+		  		<tr>
+		  			<th><b>Activity details</b></th>
+		  			<td> {{ activity_log.Activity_log_details}} </td>
+		  		</tr>
+		  		<tr>
+		  			<th><b>Number of trips made til now</b></th>
+		  			<td>{{ activity_log.number_of_trips_made_until_now}}</td>
+		  		</tr>
+		  		<tr>
+		  			<th><b>Place the Activity happened</b></th>
+		  			<td>{{ activity_log.Place_the_Activity_happened}}</td>
+				</tr>
+				<tr>
+					<th><b>Date/Time the Activity took place</b></th>
+					<td>{{ activity_log.Date_and_Time_the_Activity_took_place}}</td>
+				</tr>
+				<tr>
+					<th><b>Where maintanance happened</b></th>
+					<td>{{ activity_log.Where_maintanance_happened}}</td>
+				</tr>
+				<tr>
+					<th><b>Date/Time maintanance happened</b></th>
+					<td>{{ activity_log.Date_Time_maintanance_happened}}</td>
+				</tr>
+				<tr>
+					<th><b>Who did Maintanance</b></th>
+					<td>{{ activity_log.Who_did_Maintanance}}</td>
+				</tr>
+				<tr>
+					<th><b>Contacts of who did the Maintanace</b></th>
+					<td>{{ activity_log.contacts_of_who_did_the_repair }}</td>
+				</tr>
+				<tr>
+					<th><b>Image before maintanance</b></th>
+					<td><img src="{{ activity_log.image_before_maintanance.url }}" class="img-rounded" width="300" height="230"></td>
+				</tr>
+				<tr>
+					<th><b>Image after maintanance</b></th>
+					<td><img src="{{ activity_log.image_after_maintanance.url }}" class="img-rounded" width="300" height="230"></td>
+				</tr>
+				<tr>
+					<th><b>Amount</b></th>
+					<td>{{ activity_log.amount}}</td>
+				</tr>
+				<tr>
+					<th><b>Reciept</b></th>
+					<td><img src="{{ activity_log.reciept.url }}" class="img-rounded" width="300" height="230"></td>
+			</table>
 		</div>
 
 	{% endfor %}

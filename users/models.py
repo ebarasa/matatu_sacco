@@ -38,7 +38,7 @@ class Owner(models.Model):
 class Matatu(models.Model):
 	owner = models.ForeignKey(Owner, on_delete=models.CASCADE)
 	name = models.CharField(max_length=100)
-	reg_number = models.IntegerField()
+	reg_number = models.CharField(max_length=50)
 	reg_year = models.DateTimeField()
 	make_and_mode =models.CharField(max_length=100)
 	number_of_seats = models.IntegerField(null=True)

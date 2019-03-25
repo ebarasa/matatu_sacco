@@ -36,7 +36,7 @@ class Owner(models.Model):
 
 
 class Matatu(models.Model):
-	owner_id = models.ForeignKey(Owner, on_delete=models.CASCADE)
+	owner = models.ForeignKey(Owner, on_delete=models.CASCADE)
 	name = models.CharField(max_length=100)
 	reg_number = models.IntegerField()
 	reg_year = models.DateTimeField()
@@ -59,7 +59,7 @@ class Matatu(models.Model):
 
 
 class Crew(models.Model):
-	matatu_id = models.ForeignKey(Matatu, on_delete=models.CASCADE)
+	matatu = models.ForeignKey(Matatu, on_delete=models.CASCADE)
 	crew_type = models.CharField(max_length=100, choices = (
 		('driver', 'Driver'),
 		('tout', 'Tout')
@@ -83,7 +83,7 @@ class Crew(models.Model):
 
 
 class Finance(models.Model):
-	matatu_id = models.ForeignKey(Matatu, on_delete=models.CASCADE)
+	matatu = models.ForeignKey(Matatu, on_delete=models.CASCADE)
 	date_time = models.DateTimeField()
 	finance_type = models.CharField(max_length=100, choices = (
 		('income', 'Income'),
@@ -97,7 +97,7 @@ class Finance(models.Model):
 		return self.details
 
 class Activity_log(models.Model):
-	matatu_id = models.ForeignKey(Matatu, on_delete=models.CASCADE)
+	matatu = models.ForeignKey(Matatu, on_delete=models.CASCADE)
 	Date_Time_of_record = models.DateTimeField() 
 	Activity_log_type = models.CharField(max_length=100, choices = (
 		('trips', 'Trips'),
@@ -123,8 +123,4 @@ class Activity_log(models.Model):
 
 	def __str__(self):
 		return self. Activity_log_type
-
-
-
-		
 

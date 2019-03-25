@@ -1,0 +1,48 @@
+{% extends "sacco/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+		<div class="media">
+		    <img class="rounded-circle account-img" src="{{user.profile.image.url}}">
+		    <div class="media-body">
+		      <h2 class="account-heading">{{ user.username }}</h2>
+		      <p class="text-secondary">{{ user.email }}</p>
+		    </div>
+		 </div>
+	
+	<nav aria-label="breadcrumb">
+	  	<ol class="breadcrumb">
+	    	<li class="breadcrumb-item"><a href="/matatu">My Matatus</a></li>
+	    	<li class="breadcrumb-item active" aria-current="page">{{ matatu.name }}</li>
+	  	</ol>
+	</nav>
+	<h3><b>Finance</b></h3>
+		<div class="alert alert-warning" role="alert">
+			<p><strong>Name: </strong> {{ matatu.name }} <br/>
+			<strong>Reg No: </strong> {{ matatu.reg_number }}</p>
+		</div>
+		<div class="content-section">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Date/Time</th>
+						<th>Type</th>
+						<th>Detail</th>
+						<th>Amount</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for finance in finances %}
+						<tr>
+							<td> {{ finance.date_time }} </td>
+							<td> {{ finance.finance_type }} </td>
+							<td> {{ finance.details }} </td>
+							<td> {{ finance.amount }} </td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+
+{% endblock content %}

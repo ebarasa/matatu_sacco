@@ -1,0 +1,45 @@
+{% extends "sacco/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+	<div class="media">
+		 <img class="rounded-circle account-img" src="{{user.profile.image.url}}">
+		    <div class="media-body">
+		      	<h2 class="account-heading">{{ user.username }}</h2>
+		     	<p class="text-secondary">{{ user.email }}</p>
+		    </div>
+	</div>
+
+	<legend class="border-bottom mb-4"><h3><b>My Matatus</b></h3></legend>
+		<div class="content-section">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Reg Number</th>
+						<th>Model</th>
+						<th>Seats</th>
+						<th>Route</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for matatu in matatus %}
+					<tr>
+						<td> {{ matatu.name }} </td>
+						<td> {{ matatu.reg_number }} </td>
+						<td> {{ matatu.make_and_mode }} </td>
+						<td> {{ matatu.number_of_seats }} </td>
+						<td>  {{ matatu.route }} </td>
+						<td>
+							<a href="/crew/{{ matatu.id }}">Crew</a> &bull;
+							<a href="/finance/{{ matatu.id }}">Finance</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends "sacco/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+	
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+	    <li class="breadcrumb-item"><a href="/matatu">My Matatus</a></li>
+	    <li class="breadcrumb-item active" aria-current="page">{{ matatu.name }}</li>
+	  </ol>
+	</nav>
+	<h2>Crew Members</h2>
+		<div class="alert alert-warning" role="alert">
+			<p><strong>Name: </strong> {{ matatu.name }} <br/>
+			<strong>Reg No: </strong> {{ matatu.reg_number }}</p>
+		</div>
+		<div class="content-section">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Type</th>
+						<th>Full Name</th>
+						<th>Id Number</th>
+						<th>Phone Number</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for member in crews %}
+					<tr>
+						<td> {{ member.crew_type }} </td>
+						<td> {{ member.full_name }} </td>
+						<td> {{ member.phone_number }} </td>
+						<td> {{ member.id_number }} </td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+
+{% endblock content %}

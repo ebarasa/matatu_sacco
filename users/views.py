@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .form import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, OwnerUpdateForm
-from .models import Owner, Matatu, Activity_log, Crew
+from .models import Owner, Matatu, Activity_log, Crew, Finance
 
 def register(request):
 	if request.method == 'POST':
@@ -51,14 +51,30 @@ def detail(request):
 @login_required
 def activity(request):
 	context = {
-		'activity_logs': Activity_log.objects.all()
+		'activity_logs': Activity_log.objects.select_related('matatu').filter(matatu_id = request.user.id),
 	}
 	return render(request, 'users/activity.html', context)
 
+@login_required
+def matatu(request):
+	context = {
+		'matatus' : Matatu.objects.select_related('owner').filter(owner_id = request.user.id),
+	}
+	return render(request, 'users/matatu.html', context)
 
 @login_required
-def report(request):
+def crew(request, matatu_id):
+	context = {
+		'crews' : Crew.objects.filter(matatu_id=matatu_id),
+		'matatu': Matatu.objects.get(id=matatu_id)
+	}
+	return render(request, 'users/crew.html', context)
 
-
-	return render(request, 'users/report.html')
+@login_required
+def finance(request, matatu_id):
+	context = {
+		'finances' : Finance.objects.filter(matatu_id=matatu_id),
+		'matatu': Matatu.objects.get(id=matatu_id)
+	}
+	return render(request, 'users/finance.html', context)
 

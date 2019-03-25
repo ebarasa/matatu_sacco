@@ -5,14 +5,15 @@
 
 	{% for activity_log in activity_logs %}
 
-		<div class="content-section">
-		  <div class="media">
+		<div class="media">
 		    <img class="rounded-circle account-img" src="{{user.profile.image.url}}">
 		    <div class="media-body">
 		      <h2 class="account-heading">{{ user.username }}</h2>
 		      <p class="text-secondary">{{ user.email }}</p>
 		    </div>
-		  </div>
+		 </div>
+
+		<div class="content-section">
 		  <form method="POST" enctype="multipart/form-data">
 				{% csrf_token %}
 				<fieldset class="form-group">
@@ -28,10 +29,10 @@
 					<p><b>Date/Time maintanance happened:</b> {{ activity_log.Date_Time_maintanance_happened}}</p>
 					<p><b>Who did Maintanance:</b> {{ activity_log.Who_did_Maintanance}}</p>
 					<p><b>Contacts of who did the Maintanace</b> {{ activity_log.contacts_of_who_did_the_repair}}</p>
-					<p><b>image before maintanance:</b> {{ activity_log.image_before_maintanance}}</p>
-					<p><b>image after maintanance:</b> {{ activity_log.image_after_maintanance}}</p>
+					<p><b>image before maintanance:</b><p><b>image after maintanance:</b> <img src="{{ activity_log.image_before_maintanance.url }}" class="img-rounded" width="300" height="230"></p> 
+					<p><b>image after maintanance:</b> <img src="{{ activity_log.image_after_maintanance.url }}" class="img-rounded" width="300" height="230"></p>
 					<p><b>Amount:</b> {{ activity_log.amount}}</p>
-					<p><b>Reciept:</b> {{ activity_log.reciept}}</p>
+					<p><b>Reciept:</b><img src="{{ activity_log.reciept.url }}" class="img-rounded" width="300" height="230"></p>
 				</fieldset>
 			</form> 
 		</div>

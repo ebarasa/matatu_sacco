@@ -51,3 +51,6 @@ def suggestions(request):
 
 def etc(request):
 	return render(request, 'sacco/etc.html', {'title': 'etc'})
+
+def awards(request):
+	return render(request, 'sacco/awards.html', {'title': 'awards'})

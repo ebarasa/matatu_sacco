@@ -18,4 +18,5 @@ urlpatterns = [
     path('help/', views.help, name='sacco-help'),
     path('suggestions/', views.suggestions, name='sacco-suggestions'),
     path('etc/', views.etc, name='sacco-etc'),
+    path('awards/', views.awards, name='sacco-awards'),
 ]

@@ -2,7 +2,8 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
+		
+	<div class="content-section">
 		<div class="media">
 			<img class="rounded-circle account-img" src="{{user.profile.image.url}}">
 			<div class="media-body">
@@ -10,7 +11,6 @@
 				<p class="text-secondary">{{ user.email }}</p>
 			</div>
 		</div>
-		<div class="content-section">
 			{% for owner in owners %}
 			<form>
 				<fieldset class="form-group">
@@ -23,12 +23,6 @@
 			</form>
 			{% endfor %}
 			<button type="button" class="btn btn-info"><a href="/profile"><i class="fas fa-pencil-alt"></i> Edit</a></button>
-		</div>
+	</div>
 
 {% endblock content %}
-
-{% block x %}
-
-
-
-{% endblock %}

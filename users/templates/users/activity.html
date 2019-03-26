@@ -3,18 +3,17 @@
 
 {% block content %}
 
-	{% for activity_log in activity_logs %}
-
+	<div class="content-section">
 		<div class="media">
 		    <img class="rounded-circle account-img" src="{{user.profile.image.url}}">
 		    <div class="media-body">
 		      <h2 class="account-heading">{{ user.username }}</h2>
 		      <p class="text-secondary">{{ user.email }}</p>
 		    </div>
-		 </div>
+		</div>
 
-		 <legend class="border-bottom mb-4"><h3><b>Activities Info</b></h3></legend>
-		<div class="content-section">
+		<legend class="border-bottom mb-4"><h3><b>Activities Info</b></h3></legend>
+		{% for activity_log in activity_logs %}
 		  	<table class="table table-striped">
 		  		<tr>
 		  			<th><b>Matatu Name</b></th>
@@ -53,11 +52,11 @@
 					<td>{{ activity_log.Date_Time_maintanance_happened}}</td>
 				</tr>
 				<tr>
-					<th><b>Who did Maintanance</b></th>
+					<th><b>Who did Maintanance/Fueling</b></th>
 					<td>{{ activity_log.Who_did_Maintanance}}</td>
 				</tr>
 				<tr>
-					<th><b>Contacts of who did the Maintanace</b></th>
+					<th><b>Contacts of who did the Maintanace/Fueling</b></th>
 					<td>{{ activity_log.contacts_of_who_did_the_repair }}</td>
 				</tr>
 				<tr>
@@ -75,9 +74,11 @@
 				<tr>
 					<th><b>Reciept</b></th>
 					<td><img src="{{ activity_log.reciept.url }}" class="img-rounded" width="300" height="230"></td>
+				</tr>
 			</table>
-		</div>
+		{% endfor %}
+	</div>
 
-	{% endfor %}
+	
 
 {% endblock content %}

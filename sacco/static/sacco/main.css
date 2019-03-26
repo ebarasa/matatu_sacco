@@ -167,3 +167,15 @@ a.article-title:hover {
 .btn a:hover {
   text-decoration: none;
 }
+
+tr.summary td {
+  font-weight: bold;
+}
+
+tr.summary.top-line td {
+  border-top: 3px #888 solid;
+}
+
+tr.summary.bottom-line td {
+  border-bottom: 3px #888 solid;
+}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+
 from .form import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, OwnerUpdateForm
 from .models import Owner, Matatu, Activity_log, Crew, Finance
 
@@ -50,15 +51,25 @@ def detail(request):
 
 @login_required
 def activity(request):
+	owner_id = 0
+	owner = Owner.objects.filter(user_id=request.user.id)
+	if len(owner) > 0:
+		owner_id = owner[0].id
+	matatus = Matatu.objects.filter(owner_id=owner_id)
+	matatu_ids = list(map(lambda x: x.id, matatus))
 	context = {
-		'activity_logs': Activity_log.objects.select_related('matatu').filter(matatu_id = request.user.id),
+		'activity_logs': Activity_log.objects.filter(pk__in=matatu_ids).order_by('-Date_Time_of_record'),
 	}
 	return render(request, 'users/activity.html', context)
 
 @login_required
 def matatu(request):
+	owner_id = 0
+	owner = Owner.objects.filter(user_id=request.user.id)
+	if len(owner) > 0:
+		owner_id = owner[0].id
 	context = {
-		'matatus' : Matatu.objects.select_related('owner').filter(owner_id = request.user.id),
+		'matatus' : Matatu.objects.select_related('owner').filter(owner_id=owner_id),
 	}
 	return render(request, 'users/matatu.html', context)
 
@@ -72,9 +83,22 @@ def crew(request, matatu_id):
 
 @login_required
 def finance(request, matatu_id):
+	finances = Finance.objects.filter(matatu_id=matatu_id).order_by('-date_time')
+	total_income = 0
+	total_exp = 0
+	for fin in finances:
+		if fin.finance_type == 'income':
+			total_income += fin.amount
+		else:
+			total_exp += fin.amount
+
 	context = {
-		'finances' : Finance.objects.filter(matatu_id=matatu_id),
-		'matatu': Matatu.objects.get(id=matatu_id)
+		'finances' : finances,
+		'matatu': Matatu.objects.get(id=matatu_id),
+		'total_income': total_income,
+		'total_exp': total_exp,
+		'net_income': total_income - total_exp
 	}
+
 	return render(request, 'users/finance.html', context)
 

@@ -27,20 +27,32 @@
 				<thead>
 					<tr>
 						<th>Date/Time</th>
-						<th>Type</th>
 						<th>Detail</th>
-						<th>Amount</th>
+						<th>CR (Income)</th>
+						<th>DR (Expense)</th>
 					</tr>
 				</thead>
 				<tbody>
 					{% for finance in finances %}
 						<tr>
 							<td> {{ finance.date_time }} </td>
-							<td> {{ finance.finance_type }} </td>
 							<td> {{ finance.details }} </td>
+							{% if finance.finance_type == 'income' %}
 							<td> {{ finance.amount }} </td>
+							<td></td>
+							{% else %}
+							<td></td>
+							<td> {{ finance.amount }} </td>
+							{% endif %}
 						</tr>
 					{% endfor %}
+					<tr class="summary top-line">
+						<td></td><td></td><td>{{ total_income }}</td><td>{{ total_exp }}</td>
+					</tr>
+					<tr class="summary bottom-line">
+						<td colspan="3">NET Income</td>
+						<td>{{ net_income }}</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
